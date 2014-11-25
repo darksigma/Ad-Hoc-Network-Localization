@@ -1,5 +1,5 @@
 clear;
-angles = [-1 15 60 105 105; 90 -1 0 45 20; 135 180 -1 90 45; 0 40 90 -1 180; 0 26.5 45 0 -1];
+angles = [-1 15 65 105 105; 90 -1 0 40 20; 135 180 -1 86 45; 0 40 90 -1 180; 0 20 45 0 -1];
 s = size(angles);
 s = s(1);
 b = zeros(6 * nchoosek(s,3), 1);
@@ -161,7 +161,7 @@ for i=3:s
     y(i) = vec(2);
 end
 
-dists = [0 2 2.8 2 4; 2 0 2 2.8 4.47; 2.8 2 0 2 2.8; 2 2.8 2 0 2; 4 4.47 2.8 2 0];
+dists = [0 2 2.8 2 6; 2 0 2 3 4.47; 2.8 2 0 2 3; 2 2.8 2 0 2; 4 5 2.8 2 0];
 Aeq = zeros(2*nchoosek(s,2), 2* nchoosek(s,2) + 1);
 beq = zeros(2*nchoosek(s,2), 1);
 H = eye(2 * nchoosek(s,2) + 1);
@@ -189,6 +189,12 @@ y =  scaling * y;
 
 c = zeros(s, 3);
 c(1,1) = 1;
+
+figure
+scatter([0 0 0 2 2], [0 2 4 0 2], 50, [0 0 0], 'filled')
+axis([-0.2, 4.2, -0.2, 4.2])
+pbaspect([1 1 1])
+
 figure
 scatter(x, y, 50, c, 'filled')
 axis([-1.1 * max(max(abs(x)), max(abs(y))), 1.1 * max(max(abs(x)), max(abs(y))), -1.1 * max(max(abs(x)), max(abs(y))), 1.1 * max(max(abs(x)), max(abs(y)))])
