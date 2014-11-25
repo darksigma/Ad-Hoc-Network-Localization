@@ -19,15 +19,11 @@ for i=1:length(csi_sliding')
             phase_1_sum = phase_1_sum + phases(1);
             phase_2_sum = phase_2_sum + phases(2);
             phase_3_sum = phase_3_sum + phases(3);
-            %phase_1_sum = phase_1_sum + angle(csi_data(1));
-            %phase_2_sum = phase_2_sum + angle(csi_data(2));
-            %phase_3_sum = phase_3_sum + angle(csi_data(3));
         end
         phase_1_avg = phase_1_sum/i;
         phase_2_avg = phase_2_sum/i;
         phase_3_avg = phase_3_sum/i;
         phase_diff_31 = phase_3_avg - phase_1_avg;
-        % Append the 3 phase averages to some list
         
     else
         phase_1_sum = 0;
@@ -39,14 +35,10 @@ for i=1:length(csi_sliding')
             phase_1_sum = phase_1_sum + phases(1);
             phase_2_sum = phase_2_sum + phases(2);
             phase_3_sum = phase_3_sum + phases(3);
-            %phase_1_sum = phase_1_sum + angle(csi_data(1));
-            %phase_2_sum = phase_2_sum + angle(csi_data(2));
-            %phase_3_sum = phase_3_sum + angle(csi_data(3));
         end
         phase_1_avg = phase_1_sum/window;
         phase_2_avg = phase_2_sum/window;
         phase_3_avg = phase_3_sum/window;
-        % Again, append the three phase averages to some array
         phase_diff_31 = phase_3_avg - phase_1_avg;
     end
     phase_1_array(i) = phase_1_avg;
